@@ -24,9 +24,7 @@ pip install opencv-python
 
 克隆仓库到本地，切换到项目目录，运行以下命令：
 
-```
-bash
-Copy code
+```bash
 python license_plate_extractor.py
 ```
 

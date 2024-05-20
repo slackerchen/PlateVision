@@ -16,8 +16,8 @@ def segment_license_plate(plate_image_path):
     _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
     # 步骤4: 膨胀操作连接字符笔画
-    kernel = np.ones((5, 5), np.uint8)  # 使用更大的膨胀核
-    dilated_image = cv2.dilate(binary_image, kernel, iterations=3)
+    kernel = np.ones((3, 3), np.uint8)
+    dilated_image = cv2.dilate(binary_image, kernel, iterations=2)
 
     # 步骤5: 查找图像内的所有轮廓
     contours, _ = cv2.findContours(dilated_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -53,5 +53,5 @@ def segment_license_plate(plate_image_path):
 
 
 # 使用函数
-plate_image_path = 'Plate/p2.jpg'
+plate_image_path = 'Plate/p1.jpg'
 segmented_chars = segment_license_plate(plate_image_path)
